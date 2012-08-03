@@ -323,7 +323,6 @@
 			$('#delete_log_form #id').val(id);
 			$('#delete_log_form').submit();
 		}
-		
 	}
 	var deleteLogSuccess = function(data){
 		if(data == "1"){

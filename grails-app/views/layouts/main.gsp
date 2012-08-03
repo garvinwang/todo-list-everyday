@@ -51,10 +51,12 @@
 				<div class="span3">
 					<h4>Email:</h4>
 					<strong>garvin.wang</strong>[at]<strong>gmail.com</strong>
+					<h4>My home</h4>
+					<a href="http://www.wanghai1024.com" target="_blank">www.wanghai1024.com</a>
 				</div>
 				<div class="span3">
 					<h4>Source:</h4>
-					....github.com
+					<a href="https://github.com/garvinwang/todo-list-everyday" target="_blank">github.com/garvinwang/todo-list-everyday</a>
 				</div>
 				<div class="span3">
 					<h4>V 0.5:</h4>
