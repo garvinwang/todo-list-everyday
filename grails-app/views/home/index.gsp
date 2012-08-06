@@ -47,14 +47,24 @@
 						<g:link controller="todolist" action="edit" id="${it.todoList.id }"><b>${it.todoList.title }：</b><br/>${it.description }</g:link>
 						</li>
 					</g:each>
-			    </ul>				
-			</div>
-			
-			<div class="span4">
-				<h3>Ready Todo</h3>
+			    </ul>	
+			    
+			    <h3>Ready Todo</h3>
 				<br/>
 				<ul class="nav nav-tabs nav-stacked">
 			        <g:each in="${redayTodos }">
+						<li data-original-title="">
+						<g:link controller="todolist" action="edit" id="${it.todoList.id }"><b>${it.todoList.title }：</b><br/>${it.description }</g:link>
+						</li>
+					</g:each>
+			    </ul>			
+			</div>
+			
+			<div class="span4">
+				<h3>Delay Todo</h3>
+				<br/>
+				<ul class="nav nav-tabs nav-stacked">
+			        <g:each in="${delayTodos }">
 						<li data-original-title="">
 						<g:link controller="todolist" action="edit" id="${it.todoList.id }"><b>${it.todoList.title }：</b><br/>${it.description }</g:link>
 						</li>

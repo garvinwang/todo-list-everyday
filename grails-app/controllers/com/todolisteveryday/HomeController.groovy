@@ -11,7 +11,9 @@ class HomeController {
 		def redayTodos = homeService.getLastReadyTodo()
 		//get last processing todo
 		def processTodos = homeService.getLastProcessingTodo()
+		//get last delay todo
+		def delayTodos = homeService.getLastDelayTodo()
 
-		[finishTodos:finishTodos,redayTodos:redayTodos,processTodos:processTodos]
+		[finishTodos:finishTodos,redayTodos:redayTodos,processTodos:processTodos,delayTodos:delayTodos]
 	}
 }

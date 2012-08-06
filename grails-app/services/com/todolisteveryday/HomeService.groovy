@@ -5,14 +5,18 @@ class HomeService {
 	TodoService todoService
 	
     def getLastFinishedTodo() {
-		todoService.getLastTodo(10, TodoStatus.FINISH)
+		todoService.getLastTodo(13, TodoStatus.FINISH)
     }
 	
 	def getLastProcessingTodo() {
-		todoService.getLastTodo(10, TodoStatus.PROCESS)
+		todoService.getLastTodo(6, TodoStatus.PROCESS)
 	}
 	
 	def getLastReadyTodo() {
-		todoService.getLastTodo(10, TodoStatus.READY)
+		todoService.getLastTodo(6, TodoStatus.READY)
+	}
+	
+	def getLastDelayTodo() {
+		todoService.getLastTodo(13, TodoStatus.DELAYED)
 	}
 }
