@@ -17,6 +17,9 @@
 					&nbsp;
 				<g:link controller="todoList" action="create" class="btn btn-large btn-danger">
 					<i class="icon-list icon-white"></i> Create Today Todo List</g:link>
+					&nbsp;
+				<g:link controller="workingTime" action="index" class="btn btn-large btn-info">
+					<i class="icon-time icon-white"></i> Working Time Maintain</g:link>
 			</div>
 
 		</div>
