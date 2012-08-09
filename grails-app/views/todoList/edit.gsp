@@ -21,7 +21,7 @@
 								<h4>
 									<g:if test="${it.id == todoList.id }">>>> </g:if>
 									${it.title }
-									<g:if test="${it?.todos.size()>0 }">（共 ${it?.todos.size() } 项）</g:if>
+									<g:if test="${it?.todos?.size()>0 }">（共 ${it?.todos?.size() } 项）</g:if>
 								</h4>
 							</g:link></li>
 					</g:each>
