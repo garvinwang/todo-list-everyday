@@ -11,7 +11,7 @@ class UrlMappings {
 		"/todo/$action?/$id?"(controller:"todo")
 		"/todoexecutionlog/$action?/$id?"(controller:"todoExecutionLog")
 		
-		"/workingtime/"(controller:"workingTime")
+		"/workingtime/$action?/$id?"(controller:"workingTime")
 		"/timebucket/$action?/$id?"(controller:"timeBucket")
 		
 		"/"(controller:"home")

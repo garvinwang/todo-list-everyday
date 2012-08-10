@@ -53,4 +53,19 @@ class TimeBucketService {
 		workingTime.totalMinites = totalMinites
 		workingTime.save(flush:true)
 	}
+
+	def getLeftTimeFromTimeBucket(currentTime,timeBuck){
+		def start = timeBuck.start
+		def end = timeBuck.end
+
+		def hours = end.hours - currentTime.hours
+		def minutes = end.minutes - currentTime.minutes
+		def sum = hours * 60 + minutes
+
+		if(sum <= 0){
+			return 0
+		}else{
+			return sum
+		}
+	}
 }

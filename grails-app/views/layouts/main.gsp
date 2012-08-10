@@ -22,7 +22,24 @@
 <link rel="stylesheet"
 	href="${resource(dir: 'kickstrap/css', file: 'responsive.css')}"
 	type="text/css">
-
+<style type="text/css">
+#toTop {
+	width:400px;
+	height: 5px;
+    text-align:center;
+    padding:5px;
+    position:fixed; /* this is the magic */
+    top:10px; /* together with this to put the div at the bottom*/
+    right:10px;
+    cursor:pointer;
+    display:none;
+}
+.cntSeparator {
+	font-size: 54px;
+	margin: 25px 7px;
+	color: black;
+}
+</style>
 
 <g:javascript library="jquery" />
 <g:javascript library="jquery-ui" />
@@ -33,14 +50,19 @@
 <body data-spy="scroll" data-target=".subnav" data-offset="50">
 	<br>
 	<div class="container">
+		<div class="row">
+			<div class="span8">
+				<h1>
+					<a href="${createLink(controller:'home')}"><i
+						class="icon-home icon-white"></i></a> Todo List Everyday ... <small>Maintain
+						"Todo List" everyday.</small>
+				</h1>
+			</div>
+			<div id="left_time" style="" class="span4">
+			</div>
+		</div>
 
-		<header class="jumbotron subhead" id="overview">
-			<h1>
-				<a href="${createLink(controller:'home')}"><i class="icon-home icon-white"></i></a>
-				Todo List Everyday ... <small>Maintain "Todo List" everyday.</small>
-			</h1>
-			<hr>
-		</header>
+		<hr>
 
 		<g:layoutBody />
 
@@ -56,7 +78,8 @@
 				</div>
 				<div class="span3">
 					<h4>Source:</h4>
-					<a href="https://github.com/garvinwang/todo-list-everyday" target="_blank">github.com/garvinwang/todo-list-everyday</a>
+					<a href="https://github.com/garvinwang/todo-list-everyday"
+						target="_blank">github.com/garvinwang/todo-list-everyday</a>
 				</div>
 				<div class="span3">
 					<h4>V 0.5:</h4>
@@ -74,8 +97,28 @@
 		</footer>
 
 	</div>
-
+	<div id="toTop"></div>
 	<g:javascript library="application" />
 	<r:layoutResources />
+	<script type="text/javascript" src="${resource(dir: 'js', file: 'jquery.countdown.js')}"></script>
+	<script type="text/javascript">
+		
+	$.get('<g:createLink controller="workingTime" action="ajaxLeftTime"></g:createLink>', function(data) {
+	  if(data != ""){
+		  $('#toTop').fadeIn();
+		  $('#toTop').countdown({
+		    stepTime: 60,
+		    format: 'hh:mm:ss',
+		    startTime: data,
+		    digitImages: 6,
+		    digitWidth: 53,
+		    digitHeight: 77,
+		    timerEnd: function() { alert('end!!'); },
+		    image: "${resource(dir: 'images', file: 'digits.png')}"
+		  });
+	  }
+	});
+	
+	</script>
 </body>
 </html>

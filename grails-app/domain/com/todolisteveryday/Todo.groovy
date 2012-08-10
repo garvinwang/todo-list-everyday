@@ -16,25 +16,25 @@ class Todo {
 	Date executionStart
 	Date executionEnd
 	TodoStatus todoStatus = TodoStatus.READY
-	
-//	List todoExecutionLogs
-	
+	int interruption = 0
+	//	List todoExecutionLogs
+
 	static belongsTo = [todoList:TodoList]
-	static hasMany = [interruptions:Interruption,todoExecutionLogs:TodoExecutionLog]
+	static hasMany = [todoExecutionLogs:TodoExecutionLog]
 
 	static mapping = {
 		remark(type:'text')
 		todoExecutionLogs cascade: "all-delete-orphan"
 		todoExecutionLogs sort:'start'
 	}
-	
+
 	static constraints = {
 		description(nullable:false)
 		executionStart(nullable:true)
 		executionEnd(nullable:true)
 		remark(nullable:true)
 	}
-	
+
 	Todo(description){
 		this.description = description
 	}

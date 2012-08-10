@@ -18,7 +18,7 @@ jQuery.fn.countdown = function(userOptions)
     digitWidth: 53,
     digitHeight: 77,
     timerEnd: function(){},
-    image: "digits.png"
+    image: "../images/digits.png"
   };
   var digits = [], interval;
 
