@@ -15,9 +15,12 @@
 		
 			<!-- left menu -->
 			<div class="span3">
+			
+				<h2>${todo?.todoList?.title }</h2>
+				<hr>
+				
 				<g:if test="${partners.size()>1  }">
-					<h2>Partner Todo <small>${todo?.todoList?.title }</small></h2>
-					<hr>
+					<h3>Partner Todo</h3>
 					
 					<ul class="nav nav-tabs nav-stacked">
 						<g:each in="${partners}">
@@ -73,7 +76,11 @@
 				<div id="todo_div">
 						<div class="alert alert-info" id="${todo?.id}">
 							
-							（当前状态：<strong id="status_display_string">${todo?.todoStatus?.displayString }</strong>）&nbsp; 
+							（当前状态：<strong id="status_display_string">${todo?.todoStatus?.displayString }</strong>
+							<g:if test="${todo?.todoStatus?.displayString == '延期'}">
+								=> <g:link class="btn" controller="todo" action="doToday" id="${todo?.id}">Do Now</g:link>
+							</g:if>
+							）&nbsp; 
 							<g:if test="${todo?.consumption }">
 							耗时：<strong>${todo?.consumption }</strong>分钟
 							</g:if>

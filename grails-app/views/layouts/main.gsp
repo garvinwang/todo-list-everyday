@@ -113,7 +113,6 @@
 		    digitImages: 6,
 		    digitWidth: 53,
 		    digitHeight: 77,
-		    timerEnd: function() { alert('end!!'); },
 		    image: "${resource(dir: 'images', file: 'digits.png')}"
 		  });
 	  }

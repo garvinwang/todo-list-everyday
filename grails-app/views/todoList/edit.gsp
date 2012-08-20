@@ -89,7 +89,13 @@
 							
 							<g:link class="btn btn-primary" controller="todo" action="detail" id="${todo?.id}"><i class="icon-pencil icon-white">&nbsp;</i>Maintain Detail</g:link>
 							&nbsp;
-							（当前状态：<strong id="status_display_string">${todo?.todoStatus?.displayString }</strong>）&nbsp;
+							（当前状态：<strong id="status_display_string">${todo?.todoStatus?.displayString }</strong>
+							
+							<g:if test="${todo?.todoStatus?.displayString == '延期'}">
+								=> <g:link class="btn" controller="todo" action="doToday" id="${todo?.id}">Do Now</g:link>
+							</g:if>
+							）&nbsp;
+							
 							<g:if test="${todo?.consumption }">
 							耗时：<strong>${todo?.consumption }</strong>分钟
 							<g:set var="consume" value="${consume + todo?.consumption }"/>

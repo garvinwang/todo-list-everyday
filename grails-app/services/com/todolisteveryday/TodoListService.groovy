@@ -13,6 +13,10 @@ class TodoListService {
 		}
 		return todayTodoList
 	}
+	
+	def getTodayTodoList(){
+		return create()
+	}
 
 	def deleteWithId(id){
 		def todoList = getWithId(id)

@@ -9,6 +9,11 @@ class TodoService {
 		todoList.addToTodos(todo).save(flush:true,failOnError:true)
 		return todo
 	}
+	
+	def create(Todo todo,todoList) {
+		todoList.addToTodos(todo).save(flush:true,failOnError:true)
+		return todo
+	}
 
 	def getWithId(id){
 		Todo.get(id)
@@ -17,7 +22,6 @@ class TodoService {
 	def deleteWithId(id){
 		def todo = getWithId(id)
 		if(todo){
-			//			todo.delete(flush:true)
 			def todoList = todo.todoList
 			todoList.removeFromTodos(todo).save(flush:true)
 		}

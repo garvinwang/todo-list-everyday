@@ -17,7 +17,7 @@ class WorkingTimeController {
 			leftTime += timeBucketService.getLeftTimeFromTimeBucket(currentTime,it)
 		}
 		if(leftTime == 0){
-			render ""
+			render "00:00:00"
 		}else{
 			int hour = (int)(leftTime/60)
 			int minute = leftTime - hour * 60
@@ -34,10 +34,14 @@ class WorkingTimeController {
 				finalStr += '0' + minute
 			}
 			finalStr += ":"
-			if(currentTime.seconds>10){
-				finalStr += currentTime.seconds
+			if(hour == 0 && minute == 0){
+				finalStr += '00'
 			}else{
-				finalStr += '0' + currentTime.seconds
+				if(currentTime.seconds>10){
+					finalStr += currentTime.seconds
+				}else{
+					finalStr += '0' + currentTime.seconds
+				}
 			}
 			render finalStr
 		}

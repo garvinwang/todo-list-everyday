@@ -1,5 +1,7 @@
 package com.todolisteveryday
 
+import com.sun.corba.se.spi.protocol.ForwardException;
+
 class TodoController {
 
 	TodoService todoService
@@ -45,7 +47,7 @@ class TodoController {
 			def todo = todoService.getWithId(params.id)
 			def partners =  todoListService.getWithId(todo.todoList.id).todos
 			todoService.updateConsumption(todo)
-			
+
 			[todo: todo, partners: partners]
 		}
 	}
@@ -100,6 +102,22 @@ class TodoController {
 			render("1")
 		}else{
 			render("0")
+		}
+	}
+
+	def doToday(){
+		if(params.id){
+			def todo = todoService.getWithId(params.id)
+			def todayTodoList = todoListService.getTodayTodoList()
+			if(todo.todoList.id != todayTodoList.id){
+				todo = todoService.create(todo, todayTodoList)
+//				todoService.deleteWithId(params.id)
+				todo.todoStatus = TodoStatus.PROCESS
+			}
+			def todoId = todo.id
+			redirect(controller:"todo",action:"detail",id:todoId,params:[id:todoId])
+		}else{
+			redirect(controller:"home",action:"index")
 		}
 	}
 }
